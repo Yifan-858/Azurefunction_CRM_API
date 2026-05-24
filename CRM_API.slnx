@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CRM_API/CRM_API.csproj" />
+  <Project Path="CRM_Trigger/CRM_Trigger.csproj" />
+</Solution>
