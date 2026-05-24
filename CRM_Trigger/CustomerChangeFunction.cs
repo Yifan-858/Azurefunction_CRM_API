@@ -28,8 +28,9 @@ public class CustomerChangeFunction
         {
             _logger.LogInformation($"Customer changed: {customer.name}");
 
-            // Send email to sales rep
-            await EmailService.SendEmail(customer);
+            _logger.LogInformation("ABOUT TO SEND EMAIL");
+            await EmailService.SendEmail(customer,_logger);
+            _logger.LogInformation("EMAIL SENT CALL DONE");
         }
     }
 }

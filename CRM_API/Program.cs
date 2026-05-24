@@ -24,6 +24,17 @@ namespace CRM_API
                 app.UseSwaggerUI();
             }
 
+            //Test EmailService API
+            //app.MapPost("/test-email", async (CosmosService service) =>
+            //{
+            //    await EmailService.SendEmail(
+            //        "YOUR_EMAIL@gmail.com",
+            //        "Test Customer"
+            //    );
+
+            //    return Results.Ok("Test email sent");
+            //});
+
             //Minimal API
             //
             // GET all customers
