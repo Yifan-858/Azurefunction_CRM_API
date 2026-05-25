@@ -24,17 +24,6 @@ namespace CRM_API
                 app.UseSwaggerUI();
             }
 
-            //Test EmailService API
-            //app.MapPost("/test-email", async (CosmosService service) =>
-            //{
-            //    await EmailService.SendEmail(
-            //        "YOUR_EMAIL@gmail.com",
-            //        "Test Customer"
-            //    );
-
-            //    return Results.Ok("Test email sent");
-            //});
-
             //Minimal API
             //
             // GET all customers
@@ -47,6 +36,18 @@ namespace CRM_API
             app.MapGet("/customers/{id}", async (string id, CosmosService service) =>
             {
                 return await service.GetById(id);
+            });
+
+            // GET by name
+            app.MapGet("/customers/search/name/{name}", async (string name,CosmosService service) =>
+            {
+                return await service.SearchByName(name);
+            });
+
+            // GET by SalesRep
+            app.MapGet("/customers/search/salesrep/{salesRepName}", async (string salesRepName,CosmosService service) =>
+            {
+                return await service.SearchBySalesRep(salesRepName);
             });
 
             // CREATE customer

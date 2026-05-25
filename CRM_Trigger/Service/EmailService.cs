@@ -23,6 +23,8 @@ Phone: {customer.phone}
 Email: {customer.email}
 Address: {customer.address}
 
+You are responsible for this customer.
+
 ";
 
         var msg = MailHelper.CreateSingleEmail(from, to, subject, body, body);

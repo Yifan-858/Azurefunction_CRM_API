@@ -52,5 +52,23 @@ namespace CRM_API.Service
             return await _container.ReadItemAsync<Customer>(id, new PartitionKey(id));
         }
 
+        public async Task<List<Customer>> SearchByName(string name)
+        {
+            var customers = await GetAll();
+
+            return customers
+                .Where(c => c.name.ToLower().Contains(name.ToLower()))
+                .ToList();
+        }
+
+        public async Task<List<Customer>> SearchBySalesRep(string salesRepName)
+        {
+            var customers = await GetAll();
+
+            return customers
+                .Where(c => c.salesRep.name.ToLower().Contains(salesRepName.ToLower()))
+                .ToList();
+        }
+
     }
 }
